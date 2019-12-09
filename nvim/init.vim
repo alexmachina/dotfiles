@@ -9,23 +9,35 @@ Plug 'dense-analysis/ale'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-airline/vim-airline'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Design
 Plug 'ryanoasis/vim-devicons'
+Plug 'rafi/awesome-vim-colorschemes'
 
 " JS syntax highlighting
 Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
+
+colorscheme dracula
 let maplocalleader = " "
 set mouse=a
 set updatetime=100
 
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
-" deoplet
+" Remove tildes
+" hi EndOfBuffer ctermbg=black ctermfg=black guibg=black guifg=black
+set fcs=eob:\ 
+
+" Deoplete
 let g:deoplete#enable_at_startup = 1
 
 " NerdTree
-let NERDTreeMinimalUI=1
-" ale
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeMinimalMenu = 1
+let g:NERDTreeDirArrowCollapsible = ' '
+let g:NERDTreeDirArrowExpandable = ' '
+
+" ALE
 let g:ale_fixers = ['prettier', 'eslint']
 let b:ale_linters = ['prettier', 'eslint']
 let g:ale_sign_error = '❌'
